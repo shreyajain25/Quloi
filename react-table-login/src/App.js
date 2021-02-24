@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-// import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
 import ManageCharges from './components/ManageCharges';
 
@@ -11,6 +11,7 @@ function App() {
 
   function checkLoginState(response){
     console.log(response)
+    setIsFbOrGoogle("staff");
     // FB.login(function(response) {
     //   if (response.status === 'connected') {
     //     // Logged into your webpage and Facebook.
@@ -39,14 +40,14 @@ function App() {
           <>
             <h1>Login to Continue</h1>
 
-            {/* <FacebookLogin
-              appId={appId} 
+            <FacebookLogin
+              appId="126474889389236" 
               fields="name,email,picture"
-              callback={responseFacebook}
-            /> */}
-            <div className="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" 
+              callback={checkLoginState}
+            />
+            {/* <div className="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" 
               data-layout="default" data-auto-logout-link="false" 
-              data-use-continue-as="false" scope="public_profile,email" onClick="checkLoginState();"></div>
+              data-use-continue-as="false" scope="public_profile,email" onClick={checkLoginState}></div> */}
             <br />
             <br />
 

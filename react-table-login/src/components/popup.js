@@ -25,7 +25,7 @@ export default function PopupDialog(props) {
         <DialogContent>
             {props.charges.map((charge) => {
                 return (<DialogContentText id="alert-dialog-description">
-                        {charges} 
+                        {charge} 
                     </DialogContentText>)
             })}
             <DialogContentText id="alert-dialog-description">

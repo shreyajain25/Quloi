@@ -25,7 +25,7 @@ function ManageCharges() {
                 <Button variant="contained" color="primary" disabled>Group</Button>
             }
             <Button variant="contained" disabled>Ungroup</Button>
-            {open ? <PopupDialog charges={charges}/> : null}
+            {open && <PopupDialog charges={charges}/>}
             <DataTable checkGroup = {checkGroup} group={group}/>
             <Button color="primary">+ More Charges</Button>
             <Button variant="outlined" color="primary">Cancel</Button>
