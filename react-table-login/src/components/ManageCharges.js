@@ -5,11 +5,17 @@ import PopupDialog from './popup';
 
 function ManageCharges() {
     const [actGroup, setActGroup] = useState(false);
+    const [charges, setCharges] = useState([]);
+    const [open, setOpen] = useState(false);
+
     const checkGroup = (activate) => {
         setActGroup(activate);
     }
+    const group = (Charges) => {
+        setCharges([...Charges]);
+    }
     const showPopup = () => {
-        return <PopupDialog />;
+        setOpen(true);
     }
     return (
         <div>
@@ -19,7 +25,8 @@ function ManageCharges() {
                 <Button variant="contained" color="primary" disabled>Group</Button>
             }
             <Button variant="contained" disabled>Ungroup</Button>
-            <DataTable checkGroup = {checkGroup}/>
+            {open ? <PopupDialog charges={charges}/> : null}
+            <DataTable checkGroup = {checkGroup} group={group}/>
             <Button color="primary">+ More Charges</Button>
             <Button variant="outlined" color="primary">Cancel</Button>
             <Button variant="contained" color="primary">Submit</Button>

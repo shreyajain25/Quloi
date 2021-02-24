@@ -6,7 +6,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-export default function PopupDialog() {
+export default function PopupDialog(props) {
   const [open, setOpen] = React.useState(true);
 
   const handleClose = () => {
@@ -23,16 +23,21 @@ export default function PopupDialog() {
       >
         <DialogTitle id="alert-dialog-title">Label Row As</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Let Google help apps 
-          </DialogContentText>
+            {props.charges.map((charge) => {
+                return (<DialogContentText id="alert-dialog-description">
+                        {charges} 
+                    </DialogContentText>)
+            })}
+            <DialogContentText id="alert-dialog-description">
+                Others 
+            </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">
-            Disagree
+            Cancel
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>
-            Agree
+            Submit
           </Button>
         </DialogActions>
       </Dialog>
